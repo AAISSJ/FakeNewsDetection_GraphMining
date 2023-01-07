@@ -1,4 +1,4 @@
-# GraphMining
+# Fake News Detection through Graph Neural Network 
 
 - DAI5019 Graph Mining and Learning (Fall, 2022)
 
