@@ -24,6 +24,7 @@ Sentence transformers에서 제공하는 pretrained model를 이용하여 train�
 <div align="center">
 <img width="406" alt="image" src="https://user-images.githubusercontent.com/76966915/211153712-5e7177ac-98fc-4399-aab9-ade2708bf751.png">
 </div>
+<br>
 
 또한, Sentence Embedding 값만으로도 코로나 관련 가짜 뉴스의 진위 여부를 판별할 수 있는지 확인해보기 위해 Train data에 대해서 Machine Learning 알고리즘 등을 사용하여 Classification을 시도하였다. 사용한 Machine Learning 알고리즘은 MLP, Logistic Regression, SVM-RBF다. 실험 결과, Sentence Embedding 값만으로도 accuracy, recall, f1-score 모두 0.70가 넘는 것을 확인할 수 있었다. 즉, Node Feature로 사용한 Sentence Embedding이 그 자체만으로도 코로나 관련 가짜 뉴스의 진위 여부를 판별할 수 있는 유의미한 값임을 의미한다. 
 
@@ -32,9 +33,11 @@ Sentence transformers에서 제공하는 pretrained model를 이용하여 train�
   <img width="208" alt="image" src="https://user-images.githubusercontent.com/76966915/211153741-885a935f-6996-4cc9-82e4-4d2976c46ad2.png">
   <img width="208" alt="image" src="https://user-images.githubusercontent.com/76966915/211153742-4b947412-f70d-46ae-8940-4e41057574ff.png">
 </div>
+<br>
 
 각 뉴스 간 연결되는 edge와 그 feature는 Keyword가 얼마나 겹치는지에 따라 설정하고자 했다. keybert_keywords, ner_keywords, keybert_keywords + ner_keywords 중 어떤 keyword를 반영하는지에 따라 Adjacency Matrix가 각기 다르게 나왔다. 먼저 서로 다른 데이터 간의 Adjacency Matrix를 생성하기 이전에 각 데이터의 keybert_keywords와 ner_keywords가 얼마나 유사한지 확인해보았다. 그 결과 train dataset과 teat dataset 전체에 대해서 keybert_keywords와 ner_keywords는 평균적으로 2.5372개로 같은 keyword들을 공유하고 있다. 따라서 대체로 keybert_keywords와 ner_keywords는 동일한 문서에 대해 대체로 유사한 키워드를 추출한다. 또한 train dataset과 test dataset 모두에 대해 keybert_keywords와 ner_keywords로 활용하여 만든 Adjacency Matrix를 시각화했다. 그 결과 아래의 그림처럼, 특정 키워드를 가지고 있는 노드들의 이웃과 그와 비슷한 노드들의 이웃은 유사하다는 것을 확인할 수 있었다. (ex. 첫번째 컬럼의 점들과 1000번째 컬럼의 점들이 거의 동일)
 
 <div align ="center">
   <img width="198" alt="image" src="https://user-images.githubusercontent.com/76966915/211153766-9ab65912-ddaf-42c5-9762-e6675a6f4d8f.png">
 </div>
+<br>
